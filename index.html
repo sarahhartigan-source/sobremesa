@@ -89,6 +89,9 @@
   .card.meals::before   { background: linear-gradient(90deg, var(--mint), var(--sky)); }
   .card.links::before   { background: linear-gradient(90deg, var(--grape), var(--sky)); }
   .card.notes::before   { background: linear-gradient(90deg, var(--sunny), var(--peach)); }
+  .card.sizes::before   { background: linear-gradient(90deg, var(--mint), var(--grape)); }
+  .card.wishlist::before{ background: linear-gradient(90deg, var(--sunny), var(--coral)); }
+  .card.speech::before  { background: linear-gradient(90deg, var(--sky), var(--mint)); }
 
   .card h2 { font-size: 26px; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
   .card h2 .ico {
@@ -99,6 +102,28 @@
   .meals h2 .ico { background: #d3f4ea; }
   .links h2 .ico { background: #e7deff; }
   .notes h2 .ico { background: #fff0cf; }
+  .sizes h2 .ico { background: #dff3ea; }
+  .wishlist h2 .ico { background: #ffe9cf; }
+  .speech h2 .ico { background: #d8f0ff; }
+
+  /* ---- Kids: sizes / needs / wishlists ---- */
+  .kid-block { margin-bottom: 20px; }
+  .kid-block:last-child { margin-bottom: 0; }
+  .kid-name { font-size: 18px; margin-bottom: 8px; }
+  .kid-age { font-weight: 600; font-size: 13px; color: #8a7d84; }
+  .size-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 7px 12px; background: #f6f2ff; border-radius: 10px; margin-bottom: 6px;
+    font-weight: 700; font-size: 14px;
+  }
+  .size-row .size-val { color: var(--grape); }
+  .needs-list, .wish-list, .milestone-list { list-style: none; margin: 8px 0 0; padding: 0; }
+  .needs-list li, .wish-list li, .milestone-list li {
+    padding: 8px 11px; border-radius: 10px; margin-bottom: 6px; font-weight: 600; font-size: 14.5px;
+  }
+  .needs-list li { background: #eefaf4; }
+  .wish-list li { background: #fff6e6; }
+  .milestone-list li { background: #eafaff; }
 
   /* ---- Dates list ---- */
   ul.dates-list { list-style: none; margin: 0; padding: 0; }
@@ -169,6 +194,9 @@
       <a href="#meals">🍲 This Week's Dinners</a>
       <a href="#links">🔗 Handy Links</a>
       <a href="#notes">📸 Notes &amp; Photos</a>
+      <a href="#sizes">📏 Sizes &amp; Needs</a>
+      <a href="#wishlist">🎁 Wish Lists</a>
+      <a href="#speech">🗣️ Liliana's Speech Corner</a>
     </nav>
 
     <div class="grid">
@@ -235,6 +263,76 @@
         <div class="photo-row">
           <div class="photo">📷 Drop a favourite<br>family photo here</div>
           <div class="photo">📷 …and another one here</div>
+        </div>
+      </section>
+
+      <!-- =================== SIZES & NEEDS =================== -->
+      <!-- EDIT: real shoe/clothes sizes and needs for each kid -->
+      <section class="card sizes" id="sizes">
+        <h2><span class="ico">📏</span> Sizes &amp; Needs</h2>
+
+        <div class="kid-block">
+          <h3 class="kid-name">👧 Ella <span class="kid-age">(age 6)</span></h3>
+          <div class="size-row"><span>Shoes</span><span class="size-val">UK 10 (EU 28)</span></div>
+          <div class="size-row"><span>Clothes</span><span class="size-val">Age 5–6</span></div>
+          <ul class="needs-list">
+            <li>👢 New wellies — outgrown the old pair</li>
+            <li>🧥 Winter coat, next size up</li>
+          </ul>
+        </div>
+
+        <div class="kid-block">
+          <h3 class="kid-name">👶 Liliana <span class="kid-age">(age 2)</span></h3>
+          <div class="size-row"><span>Shoes</span><span class="size-val">UK 5 (EU 21)</span></div>
+          <div class="size-row"><span>Clothes</span><span class="size-val">Age 18–24 mo</span></div>
+          <ul class="needs-list">
+            <li>👟 Next size of trainers — toes are tight</li>
+            <li>🩳 More summer rompers</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =================== TOY & WISH LISTS =================== -->
+      <!-- EDIT: swap in real wish-list items, add links to specific products if you like -->
+      <section class="card wishlist" id="wishlist">
+        <h2><span class="ico">🎁</span> Toy &amp; Wish Lists</h2>
+
+        <div class="kid-block">
+          <h3 class="kid-name">👧 Ella</h3>
+          <ul class="wish-list">
+            <li>🎨 Art supplies / sketch pad</li>
+            <li>🚲 Bike helmet — outgrown the old one</li>
+            <li>📚 Books, anything animal-themed</li>
+          </ul>
+        </div>
+
+        <div class="kid-block">
+          <h3 class="kid-name">👶 Liliana</h3>
+          <ul class="wish-list">
+            <li>🧩 Chunky puzzles (animals or vehicles)</li>
+            <li>🛁 Bath toys</li>
+            <li>🪆 Stacking / shape-sorter toy</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =================== LILIANA'S SPEECH CORNER =================== -->
+      <!-- EDIT: update the note with her current focus/milestones and appointment dates -->
+      <section class="card speech" id="speech">
+        <h2><span class="ico">🗣️</span> Liliana's Speech Corner</h2>
+        <div class="note">🗣️ <strong>Current focus:</strong> building 2–3 word phrases and practising clearer vowel sounds. Doing great with animal noises and naming familiar objects!</div>
+        <ul class="milestone-list">
+          <li>✅ Says her own name</li>
+          <li>🔄 Working on: blending sounds, longer sentences</li>
+          <li>📅 Next SLT appointment: <em>add date</em></li>
+        </ul>
+        <div class="links-grid" style="margin-top: 14px;">
+          <a href="https://speechandlanguage.org.uk" target="_blank" rel="noopener"><span class="lico">💬</span> Speech &amp; Language UK</a>
+          <a href="https://www.nhs.uk/conditions/speech-and-language-therapy/" target="_blank" rel="noopener"><span class="lico">🏥</span> NHS: Speech &amp; Language Therapy</a>
+          <a href="https://www.hanen.org" target="_blank" rel="noopener"><span class="lico">🌱</span> The Hanen Centre</a>
+          <a href="https://tinyhappypeople.co.uk" target="_blank" rel="noopener"><span class="lico">🎈</span> Tiny Happy People (BBC)</a>
+          <a href="https://wordsforlife.org.uk" target="_blank" rel="noopener"><span class="lico">📖</span> Words for Life</a>
+          <a href="https://www.asha.org" target="_blank" rel="noopener"><span class="lico">🗣️</span> ASHA (parent resources)</a>
         </div>
       </section>
 
