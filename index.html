@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Sobremesa — Our Family Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ==========================================================================
+     SOBREMESA — FAMILY HUB
+     Everything you'd want to change is marked with  <!-- EDIT --> in the HTML
+     below, or in the :root colours right here. Have fun with it.
+     ========================================================================== */
+  :root {
+    --peach:   #ff8a5c;
+    --coral:   #ff5d73;
+    --sunny:   #ffc44d;
+    --mint:    #3ec7a3;
+    --sky:     #4cc3ff;
+    --grape:   #8b6df0;
+    --cream:   #fff7ef;
+    --ink:     #3a2e39;
+    --card:    #ffffff;
+    --shadow:  0 10px 30px rgba(58, 46, 57, 0.12);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #ffe6d1 0%, transparent 55%),
+      radial-gradient(1000px 500px at 100% 0%, #e7dcff 0%, transparent 50%),
+      var(--cream);
+    min-height: 100vh;
+  }
+  h1, h2, h3 { font-family: "Baloo 2", "Nunito", sans-serif; margin: 0; line-height: 1.15; }
+  a { color: var(--grape); }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 20px 72px; }
+
+  /* ---- Header ---- */
+  header.hero {
+    text-align: center;
+    padding: 40px 24px 34px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, var(--coral), var(--peach) 45%, var(--sunny));
+    color: #fff;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  header.hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(600px 200px at 80% 120%, rgba(255,255,255,.35), transparent 60%);
+    pointer-events: none;
+  }
+  .hero .emoji { font-size: 46px; }
+  .hero h1 { font-size: clamp(38px, 7vw, 66px); font-weight: 800; letter-spacing: .5px; }
+  .hero p { font-size: clamp(15px, 2.4vw, 19px); margin: 10px auto 0; max-width: 620px; opacity: .96; }
+
+  /* ---- Section nav chips ---- */
+  nav.chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 26px 0 6px; }
+  nav.chips a {
+    text-decoration: none; color: var(--ink); background: #fff;
+    padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 14px;
+    box-shadow: 0 4px 14px rgba(58,46,57,.08); transition: transform .12s ease;
+    border: 2px solid transparent;
+  }
+  nav.chips a:hover { transform: translateY(-2px); border-color: var(--sunny); }
+
+  /* ---- Cards grid ---- */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 30px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card); border-radius: 24px; padding: 24px 24px 26px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 8px;
+  }
+  .card.dates::before   { background: linear-gradient(90deg, var(--coral), var(--peach)); }
+  .card.meals::before   { background: linear-gradient(90deg, var(--mint), var(--sky)); }
+  .card.links::before   { background: linear-gradient(90deg, var(--grape), var(--sky)); }
+  .card.notes::before   { background: linear-gradient(90deg, var(--sunny), var(--peach)); }
+
+  .card h2 { font-size: 26px; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .card h2 .ico {
+    display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 12px;
+    font-size: 22px; flex: none;
+  }
+  .dates h2 .ico { background: #ffe1d6; }
+  .meals h2 .ico { background: #d3f4ea; }
+  .links h2 .ico { background: #e7deff; }
+  .notes h2 .ico { background: #fff0cf; }
+
+  /* ---- Dates list ---- */
+  ul.dates-list { list-style: none; margin: 0; padding: 0; }
+  ul.dates-list li {
+    display: flex; align-items: center; gap: 14px; padding: 11px 0;
+    border-bottom: 1px dashed #efe4de;
+  }
+  ul.dates-list li:last-child { border-bottom: 0; }
+  .pill {
+    flex: none; width: 58px; text-align: center; border-radius: 12px; padding: 6px 4px;
+    background: linear-gradient(135deg, var(--coral), var(--peach)); color: #fff;
+    font-weight: 800; line-height: 1;
+  }
+  .pill .d { font-size: 20px; }
+  .pill .m { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  .dates-list .what { font-weight: 700; }
+  .dates-list .who { display: block; font-size: 13px; color: #8a7d84; font-weight: 600; }
+
+  /* ---- Meal plan ---- */
+  .meals-grid { display: grid; gap: 8px; }
+  .meal-row {
+    display: grid; grid-template-columns: 92px 1fr; align-items: center; gap: 12px;
+    background: #f4fbf8; border-radius: 12px; padding: 10px 14px;
+  }
+  .meal-row .day { font-family: "Baloo 2", sans-serif; font-weight: 700; color: var(--mint); }
+  .meal-row .dish { font-weight: 600; }
+
+  /* ---- Links ---- */
+  .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 460px) { .links-grid { grid-template-columns: 1fr; } }
+  .links-grid a {
+    text-decoration: none; color: var(--ink); font-weight: 700; font-size: 15px;
+    background: #f4f0ff; border-radius: 12px; padding: 13px 14px; display: flex; gap: 10px; align-items: center;
+    transition: background .12s ease, transform .12s ease;
+  }
+  .links-grid a:hover { background: #e9e1ff; transform: translateY(-1px); }
+  .links-grid a .lico { font-size: 18px; }
+
+  /* ---- Notes & photos ---- */
+  .note {
+    background: #fffaf0; border-left: 5px solid var(--sunny); border-radius: 10px;
+    padding: 14px 16px; font-size: 15.5px; line-height: 1.55; margin-bottom: 14px;
+  }
+  .photo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+  .photo {
+    aspect-ratio: 4 / 3; border-radius: 14px; display: grid; place-items: center; text-align: center;
+    color: #8a7d84; font-weight: 700; font-size: 13px; padding: 10px;
+    background: repeating-linear-gradient(45deg, #fff4e6, #fff4e6 12px, #ffedd8 12px, #ffedd8 24px);
+    border: 2px dashed #f0c99a;
+  }
+
+  footer { text-align: center; margin-top: 42px; color: #9c8f95; font-weight: 600; font-size: 14px; }
+  footer .heart { color: var(--coral); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- =================== HEADER  (EDIT the name & tagline) =================== -->
+    <header class="hero">
+      <div class="emoji">🍽️✨</div>
+      <h1>Sobremesa</h1>
+      <p>Our little corner of the internet — where the whole family lingers, catches up, and keeps in the loop.</p>
+    </header>
+
+    <nav class="chips">
+      <a href="#dates">📅 Key Dates</a>
+      <a href="#meals">🍲 This Week's Dinners</a>
+      <a href="#links">🔗 Handy Links</a>
+      <a href="#notes">📸 Notes &amp; Photos</a>
+    </nav>
+
+    <div class="grid">
+
+      <!-- =================== KEY DATES & BIRTHDAYS =================== -->
+      <!-- EDIT: change the day/month in each .pill and the name/what below -->
+      <section class="card dates" id="dates">
+        <h2><span class="ico">🎂</span> Key Dates &amp; Birthdays</h2>
+        <ul class="dates-list">
+          <li>
+            <span class="pill"><span class="d">03</span><span class="m">Sep</span></span>
+            <span><span class="what">Grandad's Birthday</span><span class="who">🎈 the big 7-0!</span></span>
+          </li>
+          <li>
+            <span class="pill"><span class="d">21</span><span class="m">Sep</span></span>
+            <span><span class="what">Mum &amp; Dad's Anniversary</span><span class="who">💛 dinner out</span></span>
+          </li>
+          <li>
+            <span class="pill"><span class="d">12</span><span class="m">Oct</span></span>
+            <span><span class="what">Ella's Birthday</span><span class="who">🎉 sleepover party</span></span>
+          </li>
+          <li>
+            <span class="pill"><span class="d">02</span><span class="m">Nov</span></span>
+            <span><span class="what">School half-term ends</span><span class="who">📚 back to the routine</span></span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- =================== WEEKLY DINNER PLAN =================== -->
+      <!-- EDIT: swap the dish next to each day -->
+      <section class="card meals" id="meals">
+        <h2><span class="ico">🍲</span> This Week's Dinners</h2>
+        <div class="meals-grid">
+          <div class="meal-row"><span class="day">Mon</span><span class="dish">🍝 Spaghetti &amp; meatballs</span></div>
+          <div class="meal-row"><span class="day">Tue</span><span class="dish">🌮 Taco night</span></div>
+          <div class="meal-row"><span class="day">Wed</span><span class="dish">🍛 Chicken curry &amp; rice</span></div>
+          <div class="meal-row"><span class="day">Thu</span><span class="dish">🥗 Big salad &amp; jacket potatoes</span></div>
+          <div class="meal-row"><span class="day">Fri</span><span class="dish">🍕 Homemade pizzas</span></div>
+          <div class="meal-row"><span class="day">Sat</span><span class="dish">🍔 Burgers on the grill</span></div>
+          <div class="meal-row"><span class="day">Sun</span><span class="dish">🍗 Sunday roast — everyone home!</span></div>
+        </div>
+      </section>
+
+      <!-- =================== USEFUL LINKS =================== -->
+      <!-- EDIT: change href="#" to real links and rename each one -->
+      <section class="card links" id="links">
+        <h2><span class="ico">🔗</span> Handy Links</h2>
+        <div class="links-grid">
+          <a href="#"><span class="lico">🏫</span> School Portal</a>
+          <a href="#"><span class="lico">📺</span> Streaming</a>
+          <a href="#"><span class="lico">🥕</span> Grocery Order</a>
+          <a href="#"><span class="lico">📖</span> Recipe Box</a>
+          <a href="#"><span class="lico">📄</span> Shared Docs</a>
+          <a href="#"><span class="lico">⚽</span> Sports Fixtures</a>
+        </div>
+      </section>
+
+      <!-- =================== NOTES & PHOTOS =================== -->
+      <!-- EDIT: write your own note; to add a real photo, replace a .photo div
+           with  <img src="photo.jpg" alt="..." class="photo" style="object-fit:cover"> -->
+      <section class="card notes" id="notes">
+        <h2><span class="ico">📸</span> Notes &amp; Photos</h2>
+        <div class="note">👋 <strong>Welcome to our hub!</strong> Bin day is Wednesday, the spare key is with Auntie Jo, and whoever finishes the milk buys the next one. 😄</div>
+        <div class="photo-row">
+          <div class="photo">📷 Drop a favourite<br>family photo here</div>
+          <div class="photo">📷 …and another one here</div>
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      Made with <span class="heart">♥</span> for our family · <em>sobremesa</em> — the sweet time we linger at the table
+    </footer>
+
+  </div>
+</body>
+</html>
